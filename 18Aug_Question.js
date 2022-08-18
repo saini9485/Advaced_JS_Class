@@ -45,20 +45,36 @@
 //   triple (3) //15
 
 //if we want to achieve  200 and 15 with the help of this code 
-function multiply (num1,num2){
-if(num2==undefined){
-  return function triple(num3){
-    console.log(num3*num1)
+// function multiply (num1,num2){
+// if(num2==undefined){
+//   return function triple(num3){
+//     console.log(num3*num1)
+//   }
+// }else  {
+// console.log(num1*num2)
+// }
+// }
+// multiply (10,20)//200
+// const triple = multiply (3) //num1 = 3 num2 = undefine 
+// triple (5) //15
+
+//what will be output 
+function createIncreament (){
+  let count = 0;
+  function increament (){
+    count++;
   }
-}else  {
-console.log(num1*num2)
+  let = massege = `Count is ${count}`
+  function log(){
+  console.log(massege)
 }
+return [increament,log]
 }
-multiply (10,20)
-const triple = multiply (3) //num1 = 3 num2 = undefine 
-triple (5)
-
-
+const [increament , log ] = createIncreament ();
+increament();
+increament();
+increament();
+log();//0
 
 
 
