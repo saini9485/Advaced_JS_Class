@@ -15,7 +15,7 @@
 // };
 
 // function borrowing -> call, apply
-// getData.call(Rajehs, "Lucknow", "notorious");
+// getData.call(Rajesh, "Lucknow", "notorious");
 // getData.call(vasanth, "Chennai");
 
 // getData.apply(Rajesh, ["Lucknow", "notorious"]);
