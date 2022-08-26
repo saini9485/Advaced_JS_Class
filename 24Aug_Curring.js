@@ -17,7 +17,7 @@
 //     return a
 //   }
 // }
-// console.log(main(1)(5)(9)(14)())
+// console.log(main(1)(5)(9)(14)()) 
 
 let addition = function(a,b){
  

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NEWS APP</title>
+  </head>
+  <body>
+    <div>
+      <div>
+        <input type="text" class="inputClass" />
+        <button class="buttonClass">SEARCH</button>
+      </div>
+      <div class="container"></div>
+    </div>
+  </body>
+  <script>
+    var q = "";
+    var inputClass = document.querySelector(".inputClass");
+    var buttonClass = document.querySelector(".buttonClass");
+    var container = document.querySelector(".container");
+
+    buttonClass.addEventListener("click", function (event) {
+      container.innerHTML = "";
+      //fetch(`https://newsapi.org/v2/everything?q=${q}&from=2022-07-25&sortBy=publishedAt&apiKey=7f0bf7b97fdf4346b992decbdaa0c15b`)
+        fetch(`https://newsapi.org/v2/everything?q=${inputClass.value}&from=2022-07-25&sortBy=publishedAt&apiKey=846fd227de084ee2ae29d9474c3e1a43`)
+      
+        .then((result) => result.json()) 
+        .then((data) => {
+          let articles = data["articles"];
+
+          for (let i = 0; i < 10; i++) {
+            let article = articles[i];
+            let html = `<div>
+                    <img src=${article["urlToImage"]}>
+                    <h1>${article["title"]} </h1>
+                    <p>${article["author"]}</p>
+                    <p>${article["description"]} <a href=${article["url"]}>Read more</a> </p>
+                  </div>`;
+
+            container.innerHTML += html;
+          }
+        })
+        .catch((err) => alert("error"));
+    });
+  </script>
+</html>
