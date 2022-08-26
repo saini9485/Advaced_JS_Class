@@ -1,19 +1,15 @@
  //query selectors
- var search = document.querySelector('.search');
+ var input = document.querySelector('.search');
  var btn1 = document.querySelector('.submitButton');
  let container = document.querySelector(".container")
- //event Listeners
- //event Listeners
- btn1.addEventListener('click',function(name){
-
+ btn1.addEventListener('click',function(event){
      // console.log(name.value)
-
-     fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${search.value}`)//fetching api data
+     fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${input.value}`)//fetching api data
      .then(response=>response.json())//text --> json
      .then(data=>{
          container.innerHTML = ""
          let food=data['meals']
-         console.log(data);
+         //console.log(data);
          food.forEach(ele=>  {
 
              let {strMeal,strMealThumb,strInstructions}=ele
@@ -25,6 +21,6 @@
                  </div> `
              container.innerHTML += result
          })
-     }).catch(err=>alert("invalid city name"))
+     }).catch(err=>alert("invalid  name"))
 
  })
